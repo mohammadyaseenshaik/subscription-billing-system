@@ -10,7 +10,7 @@ import jakarta.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class subscription_plans {
+public class Subscription_plans {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
