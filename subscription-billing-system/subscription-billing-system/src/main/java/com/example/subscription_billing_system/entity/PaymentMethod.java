@@ -1,31 +1,27 @@
 package com.example.subscription_billing_system.entity;
 
 import java.time.LocalDateTime;
-
-import org.springframework.data.annotation.Id;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "payment_methods")
 @Data
 @AllArgsConstructor
-
-public class Payment_methods {
+@NoArgsConstructor
+public class PaymentMethod {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @ManyToOne
     @JoinColumn(name = "customer_id")
-    private User customer_id;
+    private User customer;
+
     private String type;
     private String last4;
-    private Boolean is_default;;
-    private LocalDateTime created_at;
-
-    
+    private Boolean isDefault;
+    private LocalDateTime createdAt;
 }

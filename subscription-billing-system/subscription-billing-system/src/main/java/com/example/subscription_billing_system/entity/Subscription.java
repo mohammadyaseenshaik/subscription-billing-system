@@ -19,7 +19,8 @@ public class Subscription {
     private User user;
     @ManyToOne
     @JoinColumn(name = "plan_id")
-    private subscription_plans subscription_plan;
+    private SubscriptionPlan subscriptionPlan;
+@Enumerated(EnumType.STRING)
     private SubscriptionStatus status;
     private LocalDateTime start_date;
     private LocalDateTime next_billing_date;
