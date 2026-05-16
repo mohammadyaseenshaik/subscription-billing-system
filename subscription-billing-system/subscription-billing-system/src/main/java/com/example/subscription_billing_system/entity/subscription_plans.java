@@ -21,6 +21,5 @@ public class Subscription_plans {
     private String feature;
     private Boolean isActive;
     private LocalDateTime createdAt;
-
-    
+    private LocalDateTime updatedAt;
 }

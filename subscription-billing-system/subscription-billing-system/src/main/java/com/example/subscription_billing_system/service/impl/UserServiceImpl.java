@@ -66,6 +66,13 @@ public class UserServiceImpl implements UserService {
         User existingUser = userRepo.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
 
+        // Check if the new email is already taken by a DIFFERENT user
+        userRepo.findByEmail(userRequestDto.getEmail()).ifPresent(userWithEmail -> {
+            if (!userWithEmail.getId().equals(id)) {
+                throw new RuntimeException("Email is already in use by another user");
+            }
+        });
+
         existingUser.setName(userRequestDto.getName());
         existingUser.setEmail(userRequestDto.getEmail());
         existingUser.setRole(userRequestDto.getRole());
