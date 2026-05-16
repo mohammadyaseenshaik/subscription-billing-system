@@ -3,7 +3,7 @@ import java.time.LocalDateTime;
 import com.example.subscription_billing_system.enums.*;
 import lombok.Data;
 @Data
-public class Subscription_plansRequestDto {
+public class SubscriptionPlanRequestDto {
  private Long id;
  private String name;
  private String description;
@@ -12,6 +12,4 @@ public class Subscription_plansRequestDto {
  private String feature;
  private Boolean isActive;
  private LocalDateTime createdAt;
-
-    
 }

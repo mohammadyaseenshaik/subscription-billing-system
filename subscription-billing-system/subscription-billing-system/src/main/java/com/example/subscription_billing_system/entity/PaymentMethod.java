@@ -1,6 +1,7 @@
 package com.example.subscription_billing_system.entity;
 
 import java.time.LocalDateTime;
+import com.example.subscription_billing_system.enums.PaymentMethodType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,7 +21,9 @@ public class PaymentMethod {
     @JoinColumn(name = "customer_id")
     private User customer;
 
-    private String type;
+    @Enumerated(EnumType.STRING)
+    private PaymentMethodType type;
+
     private String last4;
     private Boolean isDefault;
     private LocalDateTime createdAt;

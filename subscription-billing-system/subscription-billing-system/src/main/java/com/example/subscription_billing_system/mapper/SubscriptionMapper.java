@@ -1,4 +1,3 @@
-
 package com.example.subscription_billing_system.mapper;
 
 import com.example.subscription_billing_system.dto.request.SubscriptionRequestDto;
@@ -16,15 +15,15 @@ public class SubscriptionMapper {
             dto.setUserId(subscription.getUser().getId());
             dto.setUserName(subscription.getUser().getName());
         }
-        if (subscription.getSubscription_plan() != null) {
-            dto.setPlanId(subscription.getSubscription_plan().getId());
-            dto.setPlanName(subscription.getSubscription_plan().getName());
+        if (subscription.getSubscriptionPlan() != null) {
+            dto.setPlanId(subscription.getSubscriptionPlan().getId());
+            dto.setPlanName(subscription.getSubscriptionPlan().getName());
         }
         dto.setStatus(subscription.getStatus());
-        dto.setStartDate(subscription.getStart_date());
-        dto.setNextBillingDate(subscription.getNext_billing_date());
-        dto.setCurrentPeriodStart(subscription.getCurrent_period_start());
-        dto.setCurrentPeriodEnd(subscription.getCurrent_period_end());
+        dto.setStartDate(subscription.getStartDate());
+        dto.setNextBillingDate(subscription.getNextBillingDate());
+        dto.setCurrentPeriodStart(subscription.getCurrentPeriodStart());
+        dto.setCurrentPeriodEnd(subscription.getCurrentPeriodEnd());
         return dto;
     }
 
@@ -33,10 +32,10 @@ public class SubscriptionMapper {
 
         Subscription subscription = new Subscription();
         subscription.setStatus(dto.getStatus());
-        subscription.setStart_date(dto.getStartDate());
-        subscription.setNext_billing_date(dto.getNextBillingDate());
-        subscription.setCurrent_period_start(dto.getCurrentPeriodStart());
-        subscription.setCurrent_period_end(dto.getCurrentPeriodEnd());
+        subscription.setStartDate(dto.getStartDate());
+        subscription.setNextBillingDate(dto.getNextBillingDate());
+        subscription.setCurrentPeriodStart(dto.getCurrentPeriodStart());
+        subscription.setCurrentPeriodEnd(dto.getCurrentPeriodEnd());
         return subscription;
     }
 }

@@ -4,7 +4,7 @@ import com.example.subscription_billing_system.enums.*;
 import lombok.Data;
 
 @Data
-public class Subscription_plansResponse {
+public class SubscriptionPlanResponse {
      private Long id;
  private String name;
  private String description;
@@ -13,6 +13,4 @@ public class Subscription_plansResponse {
  private String feature;
  private Boolean isActive;
  private LocalDateTime createdAt;
-
-    
 }

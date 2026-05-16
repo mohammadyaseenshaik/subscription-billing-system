@@ -1,16 +1,16 @@
 package com.example.subscription_billing_system.service;
 
-import com.example.subscription_billing_system.entity.Payment_methods;
+import com.example.subscription_billing_system.entity.PaymentMethod;
 
 import java.util.List;
 
 public interface PaymentMethodService {
 
-    Payment_methods savePaymentMethod(Payment_methods paymentMethod);
+    PaymentMethod savePaymentMethod(PaymentMethod paymentMethod);
 
-    List<Payment_methods> getAllPaymentMethods();
+    List<PaymentMethod> getAllPaymentMethods();
 
-    List<Payment_methods> getPaymentMethodsByCustomer(Long customerId);
+    List<PaymentMethod> getPaymentMethodsByCustomer(Long customerId);
 
-    Payment_methods setDefaultPaymentMethod(Long paymentMethodId);
+    PaymentMethod setDefaultPaymentMethod(Long paymentMethodId);
 }
