@@ -2,6 +2,7 @@ package com.example.subscription_billing_system.entity;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import com.example.subscription_billing_system.enums.FailedPaymentStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "failed_payment_logs")
-public class Failed_payment_logs {
+public class FailedPaymentLog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,10 +24,13 @@ public class Failed_payment_logs {
 
     @ManyToOne
     @JoinColumn(name = "invoice_id")
-    private Invoices invoice;
+    private Invoice invoice;
 
-    private long retry_count;
-    private LocalDate next_retry_date;
-    private String status;
-    private LocalDateTime resolved_at;
+    private int retryCount;
+    private LocalDate nextRetryDate;
+
+    @Enumerated(EnumType.STRING)
+    private FailedPaymentStatus status;
+
+    private LocalDateTime resolvedAt;
 }
