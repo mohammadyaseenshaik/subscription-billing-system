@@ -1,15 +1,16 @@
 package com.example.subscription_billing_system.service;
 
-import com.example.subscription_billing_system.entity.FailedPaymentLog;
+import com.example.subscription_billing_system.dto.request.FailedPaymentLogRequestDto;
+import com.example.subscription_billing_system.dto.response.FailedPaymentLogResponseDto;
 import java.util.List;
 
 public interface FailedPaymentLogService {
 
-    FailedPaymentLog createFailedPaymentLog(FailedPaymentLog failedPaymentLog);
+    FailedPaymentLogResponseDto createFailedPaymentLog(FailedPaymentLogRequestDto failedPaymentLog);
 
-    List<FailedPaymentLog> getAllFailedPayments();
+    List<FailedPaymentLogResponseDto> getAllFailedPayments();
 
-    List<FailedPaymentLog> getPendingRetries();
+    List<FailedPaymentLogResponseDto> getPendingRetries();
 
-    FailedPaymentLog updateRetryCount(Long id);
+    FailedPaymentLogResponseDto updateRetryCount(Long id);
 }

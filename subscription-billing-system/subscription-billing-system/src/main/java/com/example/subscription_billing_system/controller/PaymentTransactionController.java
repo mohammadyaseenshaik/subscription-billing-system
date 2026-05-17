@@ -1,6 +1,7 @@
 package com.example.subscription_billing_system.controller;
 
-import com.example.subscription_billing_system.entity.PaymentTransaction;
+import com.example.subscription_billing_system.dto.request.PaymentTransactionRequestDto;
+import com.example.subscription_billing_system.dto.response.PaymentTransactionResponseDto;
 import com.example.subscription_billing_system.service.PaymentTransactionService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,22 +19,22 @@ public class PaymentTransactionController {
     }
 
     @PostMapping
-    public ResponseEntity<PaymentTransaction> createTransaction(@RequestBody PaymentTransaction transaction) {
-        return ResponseEntity.ok(paymentTransactionService.createTransaction(transaction));
+    public ResponseEntity<PaymentTransactionResponseDto> createTransaction(@RequestBody PaymentTransactionRequestDto transactionDto) {
+        return ResponseEntity.ok(paymentTransactionService.createTransaction(transactionDto));
     }
 
     @GetMapping
-    public ResponseEntity<List<PaymentTransaction>> getAllTransactions() {
+    public ResponseEntity<List<PaymentTransactionResponseDto>> getAllTransactions() {
         return ResponseEntity.ok(paymentTransactionService.getAllTransactions());
     }
 
     @GetMapping("/invoice/{invoiceId}")
-    public ResponseEntity<List<PaymentTransaction>> getTransactionsByInvoice(@PathVariable Long invoiceId) {
+    public ResponseEntity<List<PaymentTransactionResponseDto>> getTransactionsByInvoice(@PathVariable Long invoiceId) {
         return ResponseEntity.ok(paymentTransactionService.getTransactionsByInvoice(invoiceId));
     }
 
     @PatchMapping("/{id}/status")
-    public ResponseEntity<PaymentTransaction> updateTransactionStatus(@PathVariable Long id, @RequestParam String status) {
+    public ResponseEntity<PaymentTransactionResponseDto> updateTransactionStatus(@PathVariable Long id, @RequestParam String status) {
         return ResponseEntity.ok(paymentTransactionService.updateTransactionStatus(id, status));
     }
 }

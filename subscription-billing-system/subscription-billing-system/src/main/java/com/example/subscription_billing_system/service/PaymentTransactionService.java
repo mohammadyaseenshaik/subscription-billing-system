@@ -1,16 +1,17 @@
 package com.example.subscription_billing_system.service;
 
-import com.example.subscription_billing_system.entity.PaymentTransaction;
+import com.example.subscription_billing_system.dto.request.PaymentTransactionRequestDto;
+import com.example.subscription_billing_system.dto.response.PaymentTransactionResponseDto;
 
 import java.util.List;
 
 public interface PaymentTransactionService {
 
-    PaymentTransaction createTransaction(PaymentTransaction transaction);
+    PaymentTransactionResponseDto createTransaction(PaymentTransactionRequestDto transaction);
 
-    List<PaymentTransaction> getAllTransactions();
+    List<PaymentTransactionResponseDto> getAllTransactions();
 
-    List<PaymentTransaction> getTransactionsByInvoice(Long invoiceId);
+    List<PaymentTransactionResponseDto> getTransactionsByInvoice(Long invoiceId);
 
-    PaymentTransaction updateTransactionStatus(Long transactionId, String status);
+    PaymentTransactionResponseDto updateTransactionStatus(Long transactionId, String status);
 }

@@ -1,16 +1,15 @@
-package com.example.subscription_billing_system.dto;
+package com.example.subscription_billing_system.dto.request;
 
 import com.example.subscription_billing_system.enums.InvoiceStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class InvoiceDTO {
+public class InvoiceRequestDto {
     private Long id;
     private Long subscriptionId;
     private long invoiceNumber;

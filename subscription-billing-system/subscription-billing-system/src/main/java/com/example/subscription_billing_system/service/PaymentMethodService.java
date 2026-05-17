@@ -1,16 +1,17 @@
 package com.example.subscription_billing_system.service;
 
-import com.example.subscription_billing_system.entity.PaymentMethod;
+import com.example.subscription_billing_system.dto.request.PaymentMethodRequestDto;
+import com.example.subscription_billing_system.dto.response.PaymentMethodResponseDto;
 
 import java.util.List;
 
 public interface PaymentMethodService {
 
-    PaymentMethod savePaymentMethod(PaymentMethod paymentMethod);
+    PaymentMethodResponseDto savePaymentMethod(PaymentMethodRequestDto paymentMethod);
 
-    List<PaymentMethod> getAllPaymentMethods();
+    List<PaymentMethodResponseDto> getAllPaymentMethods();
 
-    List<PaymentMethod> getPaymentMethodsByCustomer(Long customerId);
+    List<PaymentMethodResponseDto> getPaymentMethodsByCustomer(Long customerId);
 
-    PaymentMethod setDefaultPaymentMethod(Long paymentMethodId);
+    PaymentMethodResponseDto setDefaultPaymentMethod(Long paymentMethodId);
 }

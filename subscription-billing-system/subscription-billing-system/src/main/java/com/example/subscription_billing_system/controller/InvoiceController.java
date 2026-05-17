@@ -1,6 +1,7 @@
 package com.example.subscription_billing_system.controller;
 
-import com.example.subscription_billing_system.entity.Invoice;
+import com.example.subscription_billing_system.dto.request.InvoiceRequestDto;
+import com.example.subscription_billing_system.dto.response.InvoiceResponseDto;
 import com.example.subscription_billing_system.service.InvoiceService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,27 +19,27 @@ public class InvoiceController {
     }
 
     @PostMapping
-    public ResponseEntity<Invoice> createInvoice(@RequestBody Invoice invoice) {
-        return ResponseEntity.ok(invoiceService.createInvoice(invoice));
+    public ResponseEntity<InvoiceResponseDto> createInvoice(@RequestBody InvoiceRequestDto invoiceRequestDto) {
+        return ResponseEntity.ok(invoiceService.createInvoice(invoiceRequestDto));
     }
 
     @GetMapping
-    public ResponseEntity<List<Invoice>> getAllInvoices() {
+    public ResponseEntity<List<InvoiceResponseDto>> getAllInvoices() {
         return ResponseEntity.ok(invoiceService.getAllInvoices());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Invoice> getInvoiceById(@PathVariable Long id) {
+    public ResponseEntity<InvoiceResponseDto> getInvoiceById(@PathVariable Long id) {
         return ResponseEntity.ok(invoiceService.getInvoiceById(id));
     }
 
     @GetMapping("/subscription/{subscriptionId}")
-    public ResponseEntity<List<Invoice>> getInvoicesBySubscription(@PathVariable Long subscriptionId) {
+    public ResponseEntity<List<InvoiceResponseDto>> getInvoicesBySubscription(@PathVariable Long subscriptionId) {
         return ResponseEntity.ok(invoiceService.getInvoicesBySubscription(subscriptionId));
     }
 
     @PatchMapping("/{id}/status")
-    public ResponseEntity<Invoice> updateInvoiceStatus(@PathVariable Long id, @RequestParam String status) {
+    public ResponseEntity<InvoiceResponseDto> updateInvoiceStatus(@PathVariable Long id, @RequestParam String status) {
         return ResponseEntity.ok(invoiceService.updateInvoiceStatus(id, status));
     }
 }

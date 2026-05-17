@@ -23,16 +23,23 @@ public class Invoice {
     @JoinColumn(name = "subscription_id", nullable = false)
     private Subscription subscription;
 
-    private long invoice_number;
+    @Column(name = "invoice_number")
+    private long invoiceNumber;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private InvoiceStatus status;
 
     private double amount;
-    private LocalDate due_date;
-    private LocalDate paid_date;
-    private String pdf_url;
+
+    @Column(name = "due_date")
+    private LocalDate dueDate;
+
+    @Column(name = "paid_date")
+    private LocalDate paidDate;
+
+    @Column(name = "pdf_url")
+    private String pdfUrl;
     
     @Enumerated(EnumType.STRING)
     private UserRole role;

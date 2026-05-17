@@ -1,22 +1,29 @@
-package com.example.subscription_billing_system.dto;
+package com.example.subscription_billing_system.dto.response;
+
+import java.time.LocalDateTime;
 
 import com.example.subscription_billing_system.enums.FailedPaymentStatus;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class FailedPaymentLogDTO {
+public class FailedPaymentLogResponseDto {
+
     private Long id;
+
     private Long subscriptionId;
+
     private Long invoiceId;
-    private int retryCount;
-    private LocalDate nextRetryDate;
+
+    private Integer retryCount;
+
+    private LocalDateTime nextRetryDate;
+
     private FailedPaymentStatus status;
+
     private LocalDateTime resolvedAt;
 }

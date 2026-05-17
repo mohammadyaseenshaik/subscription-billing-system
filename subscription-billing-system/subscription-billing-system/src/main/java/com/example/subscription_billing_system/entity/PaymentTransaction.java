@@ -21,11 +21,21 @@ public class PaymentTransaction {
     @JoinColumn(name = "invoice_id")
     private Invoice invoice;
 
-    private long amount;
-    private String payment_method;
+    private double amount;
+
+    @Column(name = "payment_method")
+    private String paymentMethod;
+
     @Enumerated(EnumType.STRING)
+    @Column(name = "transaction_status")
     private TransactionStatus transactionStatus;
-    private String gateway_reference;
-    private String failure_reason;
-    private LocalDateTime created_at;
+
+    @Column(name = "gateway_reference")
+    private String gatewayReference;
+
+    @Column(name = "failure_reason")
+    private String failureReason;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 }

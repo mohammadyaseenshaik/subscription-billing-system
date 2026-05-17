@@ -1,17 +1,18 @@
 package com.example.subscription_billing_system.service;
-import com.example.subscription_billing_system.entity.Invoice;
+import com.example.subscription_billing_system.dto.request.InvoiceRequestDto;
+import com.example.subscription_billing_system.dto.response.InvoiceResponseDto;
 
 import java.util.List;
 
 public interface InvoiceService {
 
-    Invoice createInvoice(Invoice invoice);
+    InvoiceResponseDto createInvoice(InvoiceRequestDto invoice);
 
-    List<Invoice> getAllInvoices();
+    List<InvoiceResponseDto> getAllInvoices();
 
-    Invoice getInvoiceById(Long id);
+    InvoiceResponseDto getInvoiceById(Long id);
 
-    List<Invoice> getInvoicesBySubscription(Long subscriptionId);
+    List<InvoiceResponseDto> getInvoicesBySubscription(Long subscriptionId);
 
-    Invoice updateInvoiceStatus(Long invoiceId, String status);
+    InvoiceResponseDto updateInvoiceStatus(Long invoiceId, String status);
 }
