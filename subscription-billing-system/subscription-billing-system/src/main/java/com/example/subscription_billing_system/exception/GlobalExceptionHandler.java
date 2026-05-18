@@ -40,4 +40,18 @@ public class GlobalExceptionHandler {
         );
         return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+    
+
+      @ExceptionHandler(PaymentNotFoundException.class)
+        public ResponseEntity<ErrorResponse> handlePaymentNotFoundException(PaymentNotFoundException ex , WebRequest request)
+        {
+        ErrorResponse errorResponse = new ErrorResponse(
+            HttpStatus.NOT_FOUND.value(),
+            ex.getMessage(),
+            LocalDateTime.now()
+        );
+        return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
+
+    }
 }
+

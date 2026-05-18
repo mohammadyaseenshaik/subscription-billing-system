@@ -4,6 +4,7 @@ import com.example.subscription_billing_system.dto.request.FailedPaymentLogReque
 import com.example.subscription_billing_system.dto.response.FailedPaymentLogResponseDto;
 import com.example.subscription_billing_system.entity.FailedPaymentLog;
 import com.example.subscription_billing_system.enums.FailedPaymentStatus;
+import com.example.subscription_billing_system.exception.PaymentNotFoundException;
 import com.example.subscription_billing_system.mapper.FailedPaymentLogMapper;
 import com.example.subscription_billing_system.repository.FailedPaymentLogRepository;
 import com.example.subscription_billing_system.service.FailedPaymentLogService;
@@ -48,7 +49,7 @@ public FailedPaymentLogResponseDto createFailedPaymentLog(FailedPaymentLogReques
     @Override
     public FailedPaymentLogResponseDto updateRetryCount(Long id) {
         FailedPaymentLog log = failedPaymentLogRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Failed Payment Log not found"));
+                .orElseThrow(() -> new PaymentNotFoundException("Failed Payment Log not found"));
 
         int retryCount = log.getRetryCount() + 1;
         log.setRetryCount(retryCount);

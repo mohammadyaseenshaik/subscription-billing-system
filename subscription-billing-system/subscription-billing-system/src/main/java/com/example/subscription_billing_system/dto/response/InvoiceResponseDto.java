@@ -4,12 +4,8 @@ package com.example.subscription_billing_system.dto.response;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.LocalDateTime;     
 
-import com.example.subscription_billing_system.entity.Invoice;
-import com.example.subscription_billing_system.entity.Subscription;
 import com.example.subscription_billing_system.enums.InvoiceStatus;
 
 @Data
