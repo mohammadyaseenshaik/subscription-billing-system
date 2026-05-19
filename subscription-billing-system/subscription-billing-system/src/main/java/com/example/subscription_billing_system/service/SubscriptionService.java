@@ -8,6 +8,7 @@ public interface SubscriptionService {
     SubscriptionResponseDto subscribeToPlan(SubscriptionRequestDto request);
     List<SubscriptionResponseDto> getAllSubscriptions();
     SubscriptionResponseDto getSubscriptionById(Long id);
+    List<SubscriptionResponseDto> getSubscriptionsByUserId(Long userId);
     void cancelSubscription(Long id);
     SubscriptionResponseDto upgradeSubscription(Long id, Long newPlanId);
     SubscriptionResponseDto downgradeSubscription(Long id, Long newPlanId);

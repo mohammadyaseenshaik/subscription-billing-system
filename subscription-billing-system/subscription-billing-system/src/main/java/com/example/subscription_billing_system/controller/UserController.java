@@ -26,10 +26,7 @@ public class UserController{
     public ResponseEntity<UserResponseDto>getUserById(@PathVariable long id){
         return ResponseEntity.ok(userService.getUserById(id));
     }
-    @GetMapping("{email}")
-    public ResponseEntity<UserResponseDto>getUserByEmail(@PathVariable String email){
-        return ResponseEntity.ok(userService.getUserByEmail(email));
-    }
+  
     @PutMapping("{id}")
     public ResponseEntity<UserResponseDto>updateUser(@PathVariable long id,
     @RequestBody UserRequestDto userRequestDto){

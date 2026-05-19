@@ -11,6 +11,7 @@ public class SubscriptionResponseDto {
     private String userName;
     private Long planId;
     private String planName;
+    private double price;
     private SubscriptionStatus status;
     private LocalDateTime startDate;
     private LocalDateTime nextBillingDate;

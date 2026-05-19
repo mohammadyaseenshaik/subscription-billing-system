@@ -18,6 +18,7 @@ public class SubscriptionMapper {
         if (subscription.getSubscriptionPlan() != null) {
             dto.setPlanId(subscription.getSubscriptionPlan().getId());
             dto.setPlanName(subscription.getSubscriptionPlan().getName());
+            dto.setPrice(subscription.getSubscriptionPlan().getPrice());
         }
         dto.setStatus(subscription.getStatus());
         dto.setStartDate(subscription.getStartDate());

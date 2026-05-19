@@ -32,6 +32,11 @@ public class SubscriptionController {
         return ResponseEntity.ok(subscriptionService.getSubscriptionById(id));
     }
 
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<SubscriptionResponseDto>> getSubscriptionsByUserId(@PathVariable Long userId) {
+        return ResponseEntity.ok(subscriptionService.getSubscriptionsByUserId(userId));
+    }
+
     @PostMapping("/{id}/cancel")
     public ResponseEntity<Void> cancelSubscription(@PathVariable Long id) {
         subscriptionService.cancelSubscription(id);

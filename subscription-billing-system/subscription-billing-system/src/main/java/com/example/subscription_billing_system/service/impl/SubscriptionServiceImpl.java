@@ -74,6 +74,14 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public List<SubscriptionResponseDto> getSubscriptionsByUserId(Long userId) {
+        return subscriptionRepository.findByUserId(userId).stream()
+                .map(SubscriptionMapper::toResponseDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public void cancelSubscription(Long id) {
         Subscription subscription = subscriptionRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Subscription not found"));
